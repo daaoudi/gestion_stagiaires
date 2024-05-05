@@ -10,10 +10,10 @@
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           @if (Auth::check())
           @if(auth()->user()->nom==='admin')
-          <li><a class="nav-link scrollto" href="{{route('stagiaire.create')}}">Ajouter Stagiaires</a></li>
-          <li><a class="nav-link scrollto" href="{{route('encadrent.create')}}">Ajouter Encadrants</a></li>
-          <li><a class="nav-link scrollto" href="{{route('stage.create')}}">Ajouter Stages</a></li>
-          <li><a class="nav-link scrollto" href="{{route('absence.create')}}">Marquer Absence</a></li>
+          <li><a class="nav-link scrollto" href="{{route('stagiaire.index')}}">Liste des Stagiaires</a></li>
+          <li><a class="nav-link scrollto" href="{{route('encadrent.index')}}">Liste des Encadrants</a></li>
+          <li><a class="nav-link scrollto" href="{{route('stage.index')}}">Liste des Stages</a></li>
+          <li><a class="nav-link scrollto" href="{{route('absence.index')}}">Marquer Absence</a></li>
           @endif
           
           @else 
