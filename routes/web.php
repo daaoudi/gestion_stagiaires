@@ -33,6 +33,10 @@ Route::post('/login',[AuthController::class,'login']);
 //  Route::get('/admin/login', [AdminController::class,'showLoginForm'])->name('admin.login');
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/user',[AuthController::class,'userProfile'])->name('user.profile');
+    Route::get('/user/edit/{id}',[AuthController::class,'editProfile'])->name('user.edit');
+    Route::delete('/user/destroy/{id}',[AuthController::class,'deleteProfile'])->name('user.deleteProfile');
+    Route::put('/user/update/{id}',[AuthController::class,'updateProfile'])->name('user.update');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

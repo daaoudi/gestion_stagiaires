@@ -64,7 +64,7 @@ class AuthController extends Controller
                 return redirect('/admin/dashboard');
             }
             else{
-                return view('auth.profile')->with(['success'=>'Vous êtes maintenant connecté!']);
+                return redirect('/user')->with(['success'=>'Vous êtes maintenant connecté!']);
             }
             
             
@@ -84,6 +84,60 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
+
+    public function userProfile(){
+
+       
+   
+        $id = Auth::user()->id;
+        $user = User::find($id);
+   
+        return view('auth.profile',compact('user'));
+    }
+
+    public function editProfile( $id){
+        $user=User::findOrFail($id);
+        return view('auth.edit',compact('user'));
+  
+      }
+
+      public function updateProfile(Request $req, $id){
+        $req->validate([
+          'nom' => 'required|string',
+          'prenom'=>'required|string',
+          'email' => 'required|email',
+          'password' => 'required|string|min:6',
+          
+          'user_type'=>'required',
+      ]);
+      $user = User::findOrFail($id);
+  
+    
+      $user->update([
+        'nom' => $req->nom,
+        'prenom'=>$req->prenom,
+        'email' => $req->email,
+        'password' => bcrypt($req->password),
+       
+       'user_type'=>$req->user_type
+    ]);
+    //
+    return redirect('/user')->with(['success'=>'modifier avec succés']);
+  
+  
+      }
+  
+      public function deleteProfile($id){
+       
+        try {
+          $user = User::findOrFail($id);
+          $user->delete();
+          return redirect('/register')->with(['success' => 'supprimer avec succés']);
+      } catch (\Exception $e) {
+          // Log or handle the error
+          return redirect('/register')->with(['error' => 'il y a un  erreur de suppression ! ']);
+      }
+      }
 
 
 }
