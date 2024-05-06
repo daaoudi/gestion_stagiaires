@@ -38,7 +38,7 @@ Listes des Encadrents
                     <button type="submit" onclick="event.preventDefault(); if(confirm('are you sure you want to delete this \'Encadrant\''))
                     document.getElementById('{{$e->id}}').submit();" class="btn btn-sm btn-danger">Supp</button>
                     
-                    <a href="{{route('encadrent.show',$e->id)}}" class="btn btn-sm btn-warning">Voir</a>
+
                 </td>
                 
             </tr>

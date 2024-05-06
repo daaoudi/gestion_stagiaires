@@ -39,7 +39,7 @@ Listes des Stages
                     <button type="submit" onclick="event.preventDefault(); if(confirm('are you sure you want to delete this \'Stage\''))
                     document.getElementById('{{$s->id}}').submit();" class="btn btn-sm btn-danger">Supp</button>
                     
-                    <a href="{{route('stage.show',$s->id)}}" class="btn btn-sm btn-warning">Voir</a>
+                   
                 </td>
                 
             </tr>
