@@ -37,6 +37,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    //dashboard
+    Route::get('admin/dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+
+    
     //encadrent routes
     Route::resource('encadrent',EncadrentController::class);
 
@@ -44,6 +48,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('stage',StageController::class);
 
     //stagiaire routes
+    Route::get('stagiaire/imprimer/{id}',[StagiaireController::class,'imprimerAttestation'])->name('stagiaire.imprimer');
     Route::resource('stagiaire',StagiaireController::class);
 
     //absence routes

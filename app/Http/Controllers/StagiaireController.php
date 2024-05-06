@@ -112,4 +112,13 @@ class StagiaireController extends Controller
         $stagiaire->delete();
         return redirect()->route('stagiaire.index') -> with(['success'=>"Suppression effectuée avec succès"]);
     }
+
+    public function imprimerAttestation($id)
+{
+    // Retrieve the stagiaire with the specified ID
+    $stagiaire = Stagiaire::with(['stage', 'encadrent'])->findOrFail($id);
+
+    // Pass the stagiaire data to the view
+    return view('stagiaire.imprimer', compact('stagiaire'));
+}
 }

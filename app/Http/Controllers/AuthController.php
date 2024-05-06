@@ -60,8 +60,14 @@ class AuthController extends Controller
 
         
         if (Auth::attempt($request->only('email', 'password'))) {
+            if(auth()->user()->is_admin){
+                return redirect('/admin/dashboard');
+            }
+            else{
+                return view('auth.profile')->with('success', 'Vous êtes maintenant connecté!');
+            }
             
-            return redirect('/');
+            
         } else {
             
             return redirect()->back()->withErrors(['error' => 'Invalid credentials']);

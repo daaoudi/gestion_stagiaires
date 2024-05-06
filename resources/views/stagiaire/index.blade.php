@@ -44,7 +44,7 @@ Listes des Stagiaires
                     <button type="submit" onclick="event.preventDefault(); if(confirm('are you sure you want to delete this \'Stagiaire\''))
                     document.getElementById('{{$s->id}}').submit();" class="btn btn-sm btn-danger my-1">Supp</button>
                     
-                    <a href="{{route('stagiaire.show',$s->id)}}" class="btn btn-sm btn-warning d-inline-block my-1">Voir</a>
+                    <a href="{{route('stagiaire.imprimer',$s->id)}}" class="btn btn-sm btn-warning d-inline-block my-1">Imprimer</a>
                 </td>
                 
             </tr>

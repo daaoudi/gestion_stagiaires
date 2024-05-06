@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Stage;
+use App\Models\Encadrent;
+use App\Models\Stagiaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +29,16 @@ class AdminController extends Controller
     public function index()
     {
         //
+        $encadrents=Encadrent::all();
+        $nbrEncadrents=count($encadrents);
+
+        $stages=Stage::all();
+        $nbrStages=count($stages);
+
+        $stagiaires=Stagiaire::all();
+        $nbrStagiaires=count($stagiaires);
+
+        return view('admin.admin_dashboard',compact('nbrEncadrents','nbrStages','nbrStagiaires'));
     }
 
     /**
