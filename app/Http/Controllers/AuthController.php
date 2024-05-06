@@ -64,7 +64,7 @@ class AuthController extends Controller
                 return redirect('/admin/dashboard');
             }
             else{
-                return view('auth.profile')->with('success', 'Vous êtes maintenant connecté!');
+                return view('auth.profile')->with(['success'=>'Vous êtes maintenant connecté!']);
             }
             
             

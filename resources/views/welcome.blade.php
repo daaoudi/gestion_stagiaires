@@ -13,14 +13,16 @@ Gestion des Stagiaires
                         @csrf
                         <button type="submit">Logout</button>
                     </form>
-                    <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('admin-logout-form').submit();">Logout</a>
+                    <a href="#" class="btn btn-sm btn-danger" onclick="event.preventDefault(); document.getElementById('admin-logout-form').submit();">Logout</a>
+                    <a href="{{route('admin.dashboard')}}" class="btn btn-sm btn-primary">Dashboard</a>
                 @else
                     {{ Auth::user()->nom }}
                     <form id="user-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                         <button type="submit">Logout</button>
                     </form>
-                    <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('user-logout-form').submit();">Logout</a>
+                    <a href="#" class="btn btn-sm btn-danger" onclick="event.preventDefault(); document.getElementById('user-logout-form').submit();">Logout</a>
+                   
                 @endif
             @else
                 <p>Anonyme</p>
