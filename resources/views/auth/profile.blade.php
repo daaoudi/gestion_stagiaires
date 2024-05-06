@@ -12,7 +12,7 @@ User Profile : @if(Auth::check() )
     <div class="col-md-12">
         @php
             $user = auth()->user();
-            $msg='Vous êtes maintenant connecté!';
+            $msg='Vous êtes maintenant connecté !';
         @endphp
       
       
