@@ -32,7 +32,7 @@ Listes des Stages
                 <td>{{$s->date_fin}}</td>
                 <td>{{$s->type}}</td>
                 <td><a href="{{route('stage.edit',$s->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                    <form action="{{route('stage.destroy',$s->id)}}" method="POST" class="d-inline-block">
+                    <form action="{{route('stage.destroy',$s->id)}}" id="{{$s->id}}" method="POST" class="d-inline-block">
                     @csrf
                     @method('DELETE')
                     </form>

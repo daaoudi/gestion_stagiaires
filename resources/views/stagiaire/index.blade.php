@@ -37,7 +37,7 @@ Listes des Stagiaires
                 <td> {{$s->stage->sujet}} </td>
                 <td> {{$s->stage->type}} </td>
                 <td class="text-wrap d-flex flex-column justify-content-center align-items "><a href="{{route('stagiaire.edit',$s->id)}}" class="btn btn-sm btn-primary d-inline-block my-1">Edit</a>
-                    <form action="{{route('stagiaire.destroy',$s->id)}}" method="POST" class="d-inline-block">
+                    <form action="{{route('stagiaire.destroy',$s->id)}}" id="{{$s->id}}" method="POST" class="d-inline-block">
                     @csrf
                     @method('DELETE')
                     </form>

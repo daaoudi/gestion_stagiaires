@@ -31,7 +31,7 @@ Listes des Encadrents
                 <td>{{$e->prenom}}</td>
                 <td>{{$e->filiere}}</td>
                 <td><a href="{{route('encadrent.edit',$e->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                    <form action="{{route('encadrent.destroy',$e->id)}}" method="POST" class="d-inline-block">
+                    <form action="{{route('encadrent.destroy',$e->id)}}" id="{{$e->id}}" method="POST" class="d-inline-block">
                     @csrf
                     @method('DELETE')
                     </form>

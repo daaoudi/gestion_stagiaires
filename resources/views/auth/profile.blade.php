@@ -35,7 +35,7 @@ User Profile : {{$user->nom ." ". $user->prenom}}
                 <td> {{$user->email}}</td>
                 <td> {{$user->user_type}} </td>
                 <td> <a href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-primary" >Edit</a>
-                    <form action="{{route('user.deleteProfile',$user->id)}}" method="POST" class="d-inline-block">
+                    <form action="{{route('user.deleteProfile',$user->id)}}" id="{{$user->id}}" method="POST" class="d-inline-block">
                         @csrf
                         @method('DELETE')
                         </form>
